@@ -3,8 +3,8 @@ package com.backend.app.controller;
 import com.backend.app.model.NoteModel;
 import com.backend.app.service.NotesService;
 import com.backend.app.service.ReportsService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,7 +15,7 @@ import java.util.List;
 public class NotesController {
 
     private NotesService notesService;
-    private static Logger logger = LogManager.getLogger();
+    private static Logger logger = LoggerFactory.getLogger("jsonLogger");
 
     public NotesController(NotesService notesService, ReportsService reportsService) {
         this.notesService = notesService;
@@ -40,7 +40,7 @@ public class NotesController {
     }
 
     @DeleteMapping(value= "/note")
-    public void deleteNote(@Valid String note_id){
+    public void deleteNote(String note_id){
         logger.info("CONTROLLER LAYER - Deleting note...");
         notesService.deleteNote(note_id);
     }
