@@ -1,7 +1,6 @@
 package com.backend.app.controller;
 
 import com.backend.app.model.NoteModel;
-import com.backend.app.producer.Sender;
 import com.backend.app.service.NotesService;
 import com.backend.app.service.ReportsService;
 import org.apache.logging.log4j.LogManager;
@@ -16,18 +15,10 @@ import java.util.List;
 public class NotesController {
 
     private NotesService notesService;
-    private Sender sender;
     private static Logger logger = LogManager.getLogger();
 
-    public NotesController(NotesService notesService, Sender sender, ReportsService reportsService) {
+    public NotesController(NotesService notesService, ReportsService reportsService) {
         this.notesService = notesService;
-        this.sender = sender;
-    }
-
-    @GetMapping(value = "/send")
-    public String endpoint(@RequestParam("message") String message) {
-        sender.send(message);
-        return "Your message has been sent successfully";
     }
 
     @GetMapping(value = "/notes")
