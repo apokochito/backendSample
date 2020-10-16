@@ -1,5 +1,6 @@
 package com.backend.app.service;
 
+import com.backend.app.domain.ReportDomain;
 import com.backend.app.model.ReportModel;
 import org.springframework.stereotype.Service;
 
@@ -8,11 +9,11 @@ import java.util.List;
 @Service
 public interface ReportsService {
 
-    List<ReportModel> getReports();
+    List<ReportDomain> getReports();
 
-    ReportModel creteReport(ReportModel report);
+    ReportDomain creteReport(ReportDomain report);
 
-    ReportModel updateReport(ReportModel report, String report_id);
+    ReportDomain updateReport(ReportDomain report, String report_id);
 
     void deleteNote(String report_id);
 

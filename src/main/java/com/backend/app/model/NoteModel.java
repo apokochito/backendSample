@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Document(collection = "notes")
 public class NoteModel {
 
-    //private String password;  needed?
     @Id
     private String _id;
     private String username; // For the Owner
